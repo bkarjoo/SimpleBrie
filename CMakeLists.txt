@@ -16,7 +16,7 @@ set (Boost_USE_STATIC_LIBS OFF)
 find_package(Boost 1.63.0 COMPONENTS program_options system filesystem thread REQUIRED)
 
 
-set(SOURCE_FILES main.cpp tick_filename_constructor.cpp tick_filename_constructor.h brie_date_time.cpp brie_date_time.h)
+set(SOURCE_FILES main.cpp tick_filename_constructor.cpp tick_filename_constructor.h brie_date_time.cpp brie_date_time.h cap_file_reader.cpp cap_file_reader.h stdafx.h IMessageReceiver.h cap_message.cpp cap_message.h cap_msg_field.h print_messages.cpp print_messages.h sqlite3.c sqlite3.h SQLite.h Handle.h)
 add_executable(SimpleBrie ${SOURCE_FILES} )
 
 include_directories(${Boost_INCLUDE_DIR})

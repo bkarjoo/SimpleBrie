@@ -1,16 +1,23 @@
 #include <iostream>
 #include "brie_date_time.h"
-#include "tick_filename_constructor.h"
+
+
+#include "print_messages.h"
+#include "cap_file_reader.h"
 
 using namespace std;
+using namespace brie;
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
-    // find a file for a particular day
-    // file finder - returns the path to a file
-    brie::tick_filename_constructor tff;
-    string date = "#2015-03-11#";
-    auto a = tff.construct_file_name(date);
-    cout << tff.construct_file_name(date) << endl;
+
+    auto pm = make_unique<print_messages>();
+
+    auto& cfr = cap_file_reader::get_instance();
+    cfr.setImr(move(pm));
+
+    vector<string> v = {"f:\\2013-02-04 Daily.CAP"};
+    cfr.run(v);
+
     return 0;
 }
